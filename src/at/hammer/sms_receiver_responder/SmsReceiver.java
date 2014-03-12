@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
@@ -53,6 +54,14 @@ public class SmsReceiver extends BroadcastReceiver {
 		
 		//TextToSpeech the message
 		MainActivity.tts.speak(msg, TextToSpeech.QUEUE_FLUSH, null);
+		
+		sendReplyMessage(number, "This is an automatic reply message!");
+		Log.d("reply message", "reply message sent");
+	}
+	
+	public void sendReplyMessage(String number, String message) {
+		SmsManager sms = SmsManager.getDefault();
+		sms.sendTextMessage(number, null, message, null, null);
 	}
 
 }
