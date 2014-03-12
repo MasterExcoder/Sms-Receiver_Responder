@@ -41,7 +41,7 @@ public class SmsReceiver extends BroadcastReceiver {
 		if(MainActivity.textview_smsText != null) {
 			MainActivity.textview_smsText.setText(smsMessage[0].getMessageBody());
 		} else {
-			;
+			Log.d("SmsReceiver", "ERROR");
 		}
 	}
 

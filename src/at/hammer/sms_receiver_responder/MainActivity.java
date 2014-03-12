@@ -24,15 +24,10 @@ public class MainActivity extends ActionBarActivity {
 		//get sms TextView from Layout
 		textview_smsText = (TextView) findViewById(R.id.textview_smsText);
 		
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
-		}
-		
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
@@ -50,21 +45,6 @@ public class MainActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
-			return rootView;
-		}
-	}
+	
 
 }
