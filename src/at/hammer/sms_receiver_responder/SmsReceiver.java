@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
@@ -49,6 +50,9 @@ public class SmsReceiver extends BroadcastReceiver {
 		} else {
 			Log.d("SmsReceiver", "ERROR");
 		}
+		
+		//TextToSpeech the message
+		MainActivity.tts.speak(msg, TextToSpeech.QUEUE_FLUSH, null);
 	}
 
 }

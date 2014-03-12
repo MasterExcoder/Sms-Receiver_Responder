@@ -1,9 +1,14 @@
 package at.hammer.sms_receiver_responder;
 
+import java.util.Locale;
+
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +20,7 @@ import android.os.Build;
 public class MainActivity extends ActionBarActivity {
 
 	static TextView textview_smsText;
+	static TextToSpeech tts;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,13 @@ public class MainActivity extends ActionBarActivity {
 		//get sms TextView from Layout
 		textview_smsText = (TextView) findViewById(R.id.textview_smsText);
 		
+		//Create TextToSpeech and set OnInitListener
+		tts = new TextToSpeech(this, new OnInitListener() {
+			@Override
+			public void onInit(int status) {
+				tts.setLanguage(Locale.US);
+			}
+		});
 	}
 
 	@Override
