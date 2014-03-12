@@ -21,12 +21,12 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		//get sms TextView from Layout
+		textview_smsText = (TextView) findViewById(R.id.textview_smsText);
+		
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
 		}
-		
-		//get sms TextView from Layout
-		textview_smsText = (TextView) findViewById(R.id.textview_smsText);
 		
 	}
 
