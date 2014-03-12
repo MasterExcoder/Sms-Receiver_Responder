@@ -23,6 +23,8 @@ public class SmsReceiver extends BroadcastReceiver {
 		SmsMessage smsMessage[] = new SmsMessage[messages.length];
 
 		String msg = "";
+		String number = "";
+		
 		int smsPieces = messages.length;
 
 		for (int i = 0; i < smsPieces; i++) {
@@ -33,13 +35,17 @@ public class SmsReceiver extends BroadcastReceiver {
 					+ "Body: \n " + smsMessage[i].getMessageBody();
 		}
 
+		msg = smsMessage[0].getMessageBody();
+		number = smsMessage[0].getOriginatingAddress();
+		
 		// show first part of intercepted (current) message
 		Log.d("SMS", "Received SMS: " + msg);
 		Toast toast = Toast.makeText(context, "Received SMS: " + smsMessage[0].getMessageBody(), Toast.LENGTH_LONG);
 		toast.show();
-		//check if textview reference is null
+		
+		//check if textview reference is null and add received Message
 		if(MainActivity.textview_smsText != null) {
-			MainActivity.textview_smsText.setText(smsMessage[0].getMessageBody());
+			MainActivity.textview_smsText.setText(MainActivity.textview_smsText.getText() + "\n" + number + ": " + msg);
 		} else {
 			Log.d("SmsReceiver", "ERROR");
 		}
