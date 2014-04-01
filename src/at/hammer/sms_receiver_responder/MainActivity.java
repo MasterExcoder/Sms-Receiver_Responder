@@ -4,7 +4,6 @@ import java.util.Locale;
 
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
-import android.support.v4.app.Fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
